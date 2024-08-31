@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WaifuGame Festival Checker
 // @description  WG Tweaks by Maultasche
-// @match        https://waifugame.com*
+// @match        https://waifugame.com/*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
 // @version      1.0
