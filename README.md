@@ -15,22 +15,23 @@ You have to do a bit of work yourself. First of all, you need to install two bro
 
 Stylus allows you to easily install themes and designs for many popular websites.
 A WG player has written a very useful style for the game, which already offers many useful features and makes the game prettier in some places. Some of my scripts require this Style to be installed.
+
 ToDo: Write a guide how to install Stylus and the WaifuHelper Tweaks Style
 
 ### Tampermonkey/Greasemonkey
 
-Tampermonkey manages the so called user scripts. User script are used to customize the display and functionality of web pages with some JavaScript.
+Tampermonkey manages the so called user scripts. User scripts are used to customize the display and functionality of web pages with some JavaScript.
 Greasemonkey is the Firefox version of the Addon.
 This Addon is necessary to install and update my scripts.
 You can get the Addon here:
 * Desktop Chrome, Opera, etc. (Tampermonkey extension: https://www.tampermonkey.net/index.php?browser=chrome)
 * Desktop Firefox (Greasemonkey extension: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
-* There might an Addon for your mobile browser, but my scripts are not tested with those.
+* There might be an Addon for your mobile browser, but my scripts are not tested with those.
 
 ## Installing the scripts
 
 Once you have finished the setup, it is now relatively simple. You click on the script you want to use and Tampermonkey should automatically suggest the installation, which you then only have to confirm. The scripts should update automatically, this can be configured in your Tampermonkey Addon and you can also manually update them.
-There are some scripts that require a little configuration from you, this is added to the corresponding script.
+There are some scripts that require a little configuration from you, this is added to the corresponding script section.
 
 #### [Festival Checker](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Festival%20Checker.user.js)
 
