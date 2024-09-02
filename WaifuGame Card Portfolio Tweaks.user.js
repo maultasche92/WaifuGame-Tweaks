@@ -10,47 +10,50 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        none
 // ==/UserScript==
-var cardIds = {};
-window.setInterval(() => {
-    var cardId = document.querySelector("#cardActionBlock #cardID").innerHTML
+(function () {
+    'use strict';
+    var cardIds = {};
+    window.setInterval(() => {
+        var cardId = document.querySelector("#cardActionBlock #cardID").innerHTML
 
-    if (!cardIds[cardId]) {
-        cardIds[cardId] = true;
-        const cardname = document.querySelector("#cardActionBlock #cardName").innerHTML;
-        $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(cardname)).then((homeHtml) => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(homeHtml, 'text/html');
-            let counter = 0;
-
-            doc.querySelectorAll('.hotelListing .actionShowHotelWaifu').forEach(el => { if (el.dataset.name === cardname) counter++ });
-            document.querySelector("#cardActionBlock #cardName").insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
-        });
-    }
-}, 500);
-function showStock() {
-    var timeout = 0;
-    document.querySelectorAll(".selectCard:not(.stock)").forEach((card) => {
-        timeout += 1000;
-
-        window.setTimeout(() => {
-            var name = card.querySelector("span").innerText;
-
-            $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(name)).then((homeHtml) => {
+        if (!cardIds[cardId]) {
+            cardIds[cardId] = true;
+            const cardname = document.querySelector("#cardActionBlock #cardName").innerHTML;
+            $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(cardname)).then((homeHtml) => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(homeHtml, 'text/html');
-                card.querySelector("span").insertAdjacentHTML('beforeend', "<span> (" + doc.querySelectorAll('.hotelListing').length + "x)</span>");
+                let counter = 0;
+
+                doc.querySelectorAll('.hotelListing .actionShowHotelWaifu').forEach(el => { if (el.dataset.name === cardname) counter++ });
+                document.querySelector("#cardActionBlock #cardName").insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
             });
-            card.classList.add("stock");
-        }, timeout);
+        }
+    }, 500);
+    function showStock() {
+        var timeout = 0;
+        document.querySelectorAll(".selectCard:not(.stock)").forEach((card) => {
+            timeout += 1000;
 
-    })
-}
-document.querySelector("#cardActionBlock")?.insertAdjacentHTML('afterend', "<button id='showStock' style='margin: 10px'>Show Stock</button>");
-document.getElementById('showStock').addEventListener('click', showStock);
+            window.setTimeout(() => {
+                var name = card.querySelector("span").innerText;
 
-document.querySelectorAll(".selectCard").forEach((el) => {
-    el.addEventListener("contextmenu", (e) => {
-        showCardInfoMenuLookup(JSON.parse(el.dataset.card).id)
-        e.preventDefault();
+                $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(name)).then((homeHtml) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(homeHtml, 'text/html');
+                    card.querySelector("span").insertAdjacentHTML('beforeend', "<span> (" + doc.querySelectorAll('.hotelListing').length + "x)</span>");
+                });
+                card.classList.add("stock");
+            }, timeout);
+
+        })
+    }
+    document.querySelector("#cardActionBlock")?.insertAdjacentHTML('afterend', "<button id='showStock' style='margin: 10px'>Show Stock</button>");
+    document.getElementById('showStock').addEventListener('click', showStock);
+
+    document.querySelectorAll(".selectCard").forEach((el) => {
+        el.addEventListener("contextmenu", (e) => {
+            showCardInfoMenuLookup(JSON.parse(el.dataset.card).id)
+            e.preventDefault();
+        })
     })
-})
+})();
