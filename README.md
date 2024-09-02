@@ -46,6 +46,9 @@ Configuration: After installation, open the script with Tampermonkey. You will q
 * Show how often you already have the card in the hotel
 * Make Charm button invisible when a JustForYou-Wishlist Encounter appears, to prevent the current bug. This is temporary until they can be charmed that way (you have to use debonaire charms until then). This is just visual and a quick hack to draw your attention to the encounter.
 
+Configuration: For the formation switcher to work, you need to include "charming" in the name of one your formations and "swiping" in another.
+Why different formations? You can use one team for both (just include word in the name) but the idea is, that you use a formation with a charisma of 7 to swipe, this has the best ratio of encounter-resisting and getting good enough items on resist.
+
 ToDo: the other scripts
 
 ---
