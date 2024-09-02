@@ -7,6 +7,7 @@
 // @version      1.01
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/blob/main/WaifuGame%20Festival%20Checker.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
+// @grant        none
 // ==/UserScript==
 
 // Configurable part begins
@@ -15,20 +16,23 @@ var festivalChecks = ["Tier 3 Day-Pass"];
 // Configurable part ends
 
 
-$.get(location.origin + '/festival').then((htmlString) => {
-    const items = [];
-    let match;
-    const regex = /showInfoModal\(\"(.*?)\", itemDescription\);/g;
+(function () {
+    'use strict';
+    $.get(location.origin + '/festival').then((htmlString) => {
+        const items = [];
+        let match;
+        const regex = /showInfoModal\(\"(.*?)\", itemDescription\);/g;
 
-    while ((match = regex.exec(htmlString)) !== null) {
-        items.push(match[1]);
-    }
-
-    var match2 = null;
-    items.forEach((item) => {
-        if (!match2 && festivalChecks.indexOf(item) > -1) {
-            match2 = item;
-            document.querySelector("#menu-main a[href$=festival]").insertAdjacentHTML("beforeend", '<span class="badge bg-highlight font-10">!!!</span>');
+        while ((match = regex.exec(htmlString)) !== null) {
+            items.push(match[1]);
         }
+
+        var match2 = null;
+        items.forEach((item) => {
+            if (!match2 && festivalChecks.indexOf(item) > -1) {
+                match2 = item;
+                document.querySelector("#menu-main a[href$=festival]").insertAdjacentHTML("beforeend", '<span class="badge bg-highlight font-10">!!!</span>');
+            }
+        });
     });
-});
+})();

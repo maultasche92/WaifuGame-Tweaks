@@ -8,7 +8,7 @@
 // @version      1.0
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/blob/main/WaifuGame%20Card%20Portfolio%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
-// @grant        unsafeWindow
+// @grant        none
 // ==/UserScript==
 var cardIds = {};
 window.setInterval(() => {
@@ -50,7 +50,7 @@ document.getElementById('showStock').addEventListener('click', showStock);
 
 document.querySelectorAll(".selectCard").forEach((el) => {
     el.addEventListener("contextmenu", (e) => {
-        unsafeWindow.showCardInfoMenuLookup(JSON.parse(el.dataset.card).id)
+        showCardInfoMenuLookup(JSON.parse(el.dataset.card).id)
         e.preventDefault();
     })
 })
