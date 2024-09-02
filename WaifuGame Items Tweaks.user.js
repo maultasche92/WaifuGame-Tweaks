@@ -10,37 +10,40 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-if (location.href.indexOf("sell=") > -1) {
-    window.setTimeout(() => {
-        const type = location.href.match(/sell\=(.+)/)[1];
-        function iterateFunctions(functions) {
-            let currentIndex = 0;
+(function () {
+    'use strict';
+    if (location.href.indexOf("sell=") > -1) {
+        window.setTimeout(() => {
+            const type = location.href.match(/sell\=(.+)/)[1];
+            function iterateFunctions(functions) {
+                let currentIndex = 0;
 
-            function executeFunction(func) {
-                let interval = setInterval(() => {
-                    let element = func();
-                    if (element instanceof HTMLElement) {
-                        clearInterval(interval);
-                        element.click();
-                        currentIndex++;
-                        if (currentIndex < functions.length) {
-                            executeFunction(functions[currentIndex]);
+                function executeFunction(func) {
+                    let interval = setInterval(() => {
+                        let element = func();
+                        if (element instanceof HTMLElement) {
+                            clearInterval(interval);
+                            element.click();
+                            currentIndex++;
+                            if (currentIndex < functions.length) {
+                                executeFunction(functions[currentIndex]);
+                            }
                         }
-                    }
-                }, 10);
-            }
+                    }, 10);
+                }
 
-            if (functions.length > 0) {
-                executeFunction(functions[currentIndex]);
-            }
-        };
-        iterateFunctions([
-            () => Array.from(document.querySelectorAll("#tab-" + type + " .list-group a"))
-                .find(a => a.querySelector('span.float-right')?.textContent !== '1x'),
-            () => document.querySelector('#actionSellCustom'),
-            () => document.querySelector('#customAmountBtnMax'),
-            () => document.querySelector('.customAmountStepper > div:nth-child(1) > a:nth-child(1)'),
-            () => document.querySelector('button.btn-success:nth-child(6)'),
-        ]);
-    }, 2000)
-}
+                if (functions.length > 0) {
+                    executeFunction(functions[currentIndex]);
+                }
+            };
+            iterateFunctions([
+                () => Array.from(document.querySelectorAll("#tab-" + type + " .list-group a"))
+                    .find(a => a.querySelector('span.float-right')?.textContent !== '1x'),
+                () => document.querySelector('#actionSellCustom'),
+                () => document.querySelector('#customAmountBtnMax'),
+                () => document.querySelector('.customAmountStepper > div:nth-child(1) > a:nth-child(1)'),
+                () => document.querySelector('button.btn-success:nth-child(6)'),
+            ]);
+        }, 2000)
+    }
+})();

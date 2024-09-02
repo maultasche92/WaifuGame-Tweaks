@@ -9,7 +9,8 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
 // ==/UserScript==
-window.setTimeout(() => {
+(function () {
+    'use strict';
     document.querySelectorAll(".tapToOpenAction.card").forEach((card) => {
         $.getJSON('/json/am/' + card.dataset.amid, function (data) {
             var div = document.createElement("div");
@@ -25,4 +26,4 @@ window.setTimeout(() => {
             card.appendChild(div)
         });
     })
-}, 500)
+})();

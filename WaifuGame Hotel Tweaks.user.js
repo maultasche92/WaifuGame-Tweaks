@@ -9,9 +9,12 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
 // ==/UserScript==
-document.querySelectorAll(".actionShowHotelWaifu").forEach((el) => {
-    el.addEventListener("contextmenu", (e) => {
-        unsafeWindow.showCardInfoMenuLookup(el.dataset.cardid)
-        e.preventDefault();
+(function () {
+    'use strict';
+    document.querySelectorAll(".actionShowHotelWaifu").forEach((el) => {
+        el.addEventListener("contextmenu", (e) => {
+            unsafeWindow.showCardInfoMenuLookup(el.dataset.cardid)
+            e.preventDefault();
+        })
     })
-})
+})();

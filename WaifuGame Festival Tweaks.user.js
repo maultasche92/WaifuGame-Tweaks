@@ -9,10 +9,11 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
 // ==/UserScript==
-window.setTimeout(() => {
+(function () {
+    'use strict';
     $.get("https://waifugame.com/profile").then((htmlString) => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlString, 'text/html');
         unsafeWindow.showSuccessToast2("You are currently: " + doc.querySelector("h4").innerHTML);
     });
-}, 500);
+})();

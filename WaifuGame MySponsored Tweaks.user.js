@@ -10,7 +10,8 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-window.setInterval(() => {
+(function () {
+    'use strict';
     $.get(location.origin + '/raffles').then((homeHtml) => {
         const elMap = {};
         document.querySelectorAll(".card.card-style div").forEach((el) => { elMap[el.innerHTML] = el });
@@ -23,4 +24,4 @@ window.setInterval(() => {
             }
         })
     });
-}, 1000);
+})();

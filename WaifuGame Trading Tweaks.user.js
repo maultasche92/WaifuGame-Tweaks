@@ -9,7 +9,8 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
 // ==/UserScript==
-window.setTimeout(() => {
+(function () {
+    'use strict';
     var idMap = {};
     // add checkboxes
     document.querySelectorAll("#traderItemList div").forEach((div) => {
@@ -70,4 +71,4 @@ window.setTimeout(() => {
             });
         }, 500)
     });
-}, 1000);
+})();
