@@ -21,11 +21,9 @@ ToDo: Write a guide how to install Stylus and the WaifuHelper Tweaks Style
 ### Tampermonkey/Greasemonkey
 
 Tampermonkey manages the so called user scripts. User scripts are used to customize the display and functionality of web pages with some JavaScript.
-Greasemonkey is the Firefox version of the Addon.
+Greasemonkey is an alternative for Firefox.
 This Addon is necessary to install and update my scripts.
-You can get the Addon here:
-* Desktop Chrome, Opera, etc. (Tampermonkey extension: https://www.tampermonkey.net/index.php?browser=chrome)
-* Desktop Firefox (Greasemonkey extension: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
+You can get the Addon in your browser extension stores
 * There might be an Addon for your mobile browser, but my scripts are not tested with those.
 
 ## Installing the scripts
