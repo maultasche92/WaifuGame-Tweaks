@@ -5,7 +5,7 @@
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
 // @version      1.02
-// @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/blob/main/WaifuGame%20Festival%20Checker.user.js
+// @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Festival%20Checker.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        none
 // ==/UserScript==
