@@ -47,6 +47,6 @@
                 () => document.querySelector('.customAmountStepper > div:nth-child(1) > a:nth-child(1)'),
                 () => document.querySelector('button.btn-success:nth-child(6)'),
             ]);
-        }, 2000)
+        }, 3000)
     }
 })();
