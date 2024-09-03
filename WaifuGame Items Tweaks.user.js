@@ -38,7 +38,10 @@
             };
             iterateFunctions([
                 () => Array.from(document.querySelectorAll("#tab-" + type + " .list-group a"))
-                    .find(a => a.querySelector('span.float-right')?.textContent !== '1x'),
+                    .find((a) => {
+                        let imgCl = a.querySelector('img').classList;
+                        return a.querySelector('span.float-right')?.textContent !== '1x' && (imgCl.contains("glow-2") || imgCl.contains("glow-1") || imgCl.contains("glow-0"))
+                    }),
                 () => document.querySelector('#actionSellCustom'),
                 () => document.querySelector('#customAmountBtnMax'),
                 () => document.querySelector('.customAmountStepper > div:nth-child(1) > a:nth-child(1)'),
