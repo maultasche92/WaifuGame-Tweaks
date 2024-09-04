@@ -9,21 +9,21 @@ I initially wrote the scripts for myself to make playing more enjoyable. But I w
 
 ## Setup
 
-You have to do a bit of work yourself. First of all, you need to install two browser add-ons: Stylus and Tampermonkey/Greasemonkey
+You have to do a bit of work yourself. The first thing you have to change is how the game is displayed in your browser:
+Go to your profile settings and activate "Don't Display App in iFrame". If you do not activate it, the game is rather small and things added by my scripts may not work.
 
 ### Stylus
 
-Stylus allows you to easily install themes and designs for many popular websites.
-A WG player has written a very useful style for the game, which already offers many useful features and makes the game prettier in some places. Some of my scripts require this Style to be installed.
+Stylus allows you to easily install themes and designs for many popular websites
+A WG player has written a very useful style for the game, which already offers many useful features and makes the game prettier in some places. It is not really required, but highly recommended because I also have it installed.
 
 ToDo: Write a guide how to install Stylus and the WaifuHelper Tweaks Style
 
-### Tampermonkey/Greasemonkey
+### Tampermonkey
 
-Tampermonkey manages the so called user scripts. User scripts are used to customize the display and functionality of web pages with some JavaScript.
-Greasemonkey is an alternative for Firefox.
+Tampermonkey manages the so called userscripts. Userscripts are used to customize the display and functionality of web pages with some JavaScript.
 This Addon is necessary to install and update my scripts.
-You can get the Addon in your browser extension stores
+You can get the Addon in your browser extension store.
 * There might be an Addon for your mobile browser, but my scripts are not tested with those.
 
 ## Installing the scripts
