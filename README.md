@@ -11,14 +11,29 @@ I initially wrote the scripts for myself to make playing more enjoyable. But I w
 ## Setup
 
 You have to do a bit of work yourself. The first thing you have to change is how the game is displayed in your browser:
-Go to your profile settings and activate "Don't Display App in iFrame". If you do not activate it, the game is rather small and things added by my scripts may not work.
+Go to your [WaifuGame Profile](https://waifugame.com/profile) and activate "Don't Display App in iFrame". If you do not activate it, the game is rather small and things added by my scripts may not work.
 
 ### Stylus
 
 Stylus allows you to easily install themes and designs for many popular websites
 A WG player has written a very useful style for the game, which already offers many useful features and makes the game prettier in some places. It is not really required, but highly recommended because I also have it installed.
 
-ToDo: Write a guide how to install Stylus and the WaifuHelper Tweaks Style
+#### Stylus setup instructions
+The following instructions are for Desktop or Laptop computer.
+Installation on a mobile phone or tablet is not covered, but might be possible with Firefox for Android.
+In nutshell: [Extension](https://add0n.com/stylus.html); [Style](https://userstyles.world/style/2434/waifugame-tweaks) -
+or read on for step-by-step instruction:
+- install Stylus browser extension appropriate to your internet browser:
+  - for [Firefox](https://addons.mozilla.org/en-GB/firefox/addon/styl-us/) 
+  - for [Chrome](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
+- navigate to "WaifuGame Tweaks by kaorinite" in the public repository of styles: https://userstyles.world/style/2434/waifugame-tweaks
+- use blue "Install" button on right hand side to start installation process
+- use gray "Install style" button in upper left corner to complete installation
+- you can further tweak settings to your liking. We recommend you leave "Check for updates" as enabled.
+- if you use a link or a bookmark to open the WaifuGame, ensure it does *not* contain "pc" in the url as that would reset the setting
+
+> [!NOTE]
+> This style is hosted in a public repository of styles we have no control over it. It gets automatically updated by default.
 
 ### Tampermonkey
 
