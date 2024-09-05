@@ -94,7 +94,8 @@ Why different formations? You can use one team for both (just include word in th
 
 
 ---
-*Join WaifuGame Community server to discuss, ask questions, get support, report bugs: https://discord.com/invite/waifugame*
+> [!NOTE]
+> This GitHub platform is just for sharing the scripts, do not try to communicate here.<br>If you want to contact me, join the discord server and send a message.
 
-This GitHub platform is just for sharing the scripts, do not try to communicate here.
-If you want to contact me, join the discord server and send a message.
+
+*Join WaifuGame Community server to discuss, ask questions, get support, report bugs: https://discord.com/invite/waifugame*
