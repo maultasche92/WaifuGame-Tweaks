@@ -5,7 +5,7 @@
 // @match        https://waifugame.com/profile/wishlist*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.0
+// @version      1.1
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Search%20and%20Wishlist%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
@@ -46,7 +46,10 @@
                 $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(name)).then((homeHtml) => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(homeHtml, 'text/html');
-                    card.querySelector("div").insertAdjacentHTML('beforeend', "<span> (" + doc.querySelectorAll('.hotelListing').length + "x)</span>");
+                    let counter = 0;
+    
+                    doc.querySelectorAll('.hotelListing .actionShowHotelWaifu').forEach(el => { if (el.dataset.name === name) counter++ });
+                    card.querySelector("div").insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
                 });
                 card.classList.add("stock");
             }, timeout);
