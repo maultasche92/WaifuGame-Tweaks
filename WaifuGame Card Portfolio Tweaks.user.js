@@ -35,13 +35,13 @@
             timeout += 1000;
 
             window.setTimeout(() => {
-                var name = card.querySelector("span").innerText;
+                var name = card.querySelector("span").innerText.trim();
 
                 $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(name)).then((homeHtml) => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(homeHtml, 'text/html');
                     let counter = 0;
-    
+
                     doc.querySelectorAll('.hotelListing .actionShowHotelWaifu').forEach(el => { if (el.dataset.name === name) counter++ });
                     card.querySelector("span").insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
                 });
