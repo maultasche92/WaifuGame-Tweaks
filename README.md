@@ -63,7 +63,7 @@ There are some scripts that require a little configuration from you, this is add
 
 > [!IMPORTANT]
 > Configuration: For the formation switcher to work, you need to include "charming" in the name of one your formations and "swiping" in another.
-Why different formations? You can use one team for both (just include word in the name) but the idea is, that you use a formation with a charisma of 7 to swipe, this has the best ratio of encounter-resisting and getting good enough items on resist.
+Why different formations? You can use one team for both (just include both words at once) but the idea is, that you use a formation with a charisma of 7 to swipe, this has the best ratio of encounter-resisting and getting good enough items on resist.
 
 #### [Card Portfolio](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Card%20Portfolio%20Tweaks.user.js)
 
