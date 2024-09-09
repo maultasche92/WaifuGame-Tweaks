@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.2
+// @version      1.3
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
@@ -12,6 +12,8 @@
 (function () {
     'use strict';
     var charmId = "", swipingId = "", token = "", switchcount = 1;
+    const originalConsoleLog = unsafeWindow.console.log;
+    const lastEncounters = [];
 
     document.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowLeft') {
@@ -75,19 +77,44 @@
     function switchteam() {
         switchcount = !switchcount; switchcount ? swiping() : charming()
     };
+    function showLastEncounters() {
+        let htmlString = "<ul>";
+
+        lastEncounters.slice(0, 7).forEach((enc) => {
+            htmlString += "<li><a href='#' onclick='showCardInfoMenuLookup(" + enc.cardid + ")'>" + enc.cardname + "</a></li>";
+        });
+        htmlString += "</ul>";
+
+        showInfoModal("Last 7 Encounters", htmlString);
+    }
 
     document.getElementsByClassName("tinder--buttons")[0].insertAdjacentHTML('afterbegin', `<button title="Arrow Keys Left/Right=Swiping, Up=Switch Team, Down=show stock of card" id="partyswitcher" style="text-overflow:ellipsis;overflow: hidden;white-space: nowrap;">...</button>`);
+    document.querySelector("#swiperMenu .content hr").insertAdjacentHTML("afterend", '<a id="btnLastEncounters" href="#" class="btn font-14 shadow-l btn-full rounded-s font-600 btn-secondary text-center mb-2"><i class="fa fa-info-circle"></i> Show Last 7 Encounters</a>')
     document.getElementById('partyswitcher').addEventListener('click', switchteam);
+    document.getElementById('btnLastEncounters').addEventListener('click', showLastEncounters);
 
     fetchTeams();
-    window.setInterval(() => {
-        if (document.querySelector(".tinder--cards strong").innerText.includes("Just for you")
-            && document.querySelectorAll("div.tinder--card:nth-child(2) .droptype_flag").length > 0) {
-            document.querySelector(".btnCharm").style.visibility = "hidden";
-            document.querySelector("#love").style.visibility = "hidden"
-        } else {
-            document.querySelector(".btnCharm").style.visibility = "visible";
-            document.querySelector("#love").style.visibility = "visible"
+
+    // use the call of log, to get the exact moment, when the encounter got swiped
+    unsafeWindow.console.log = function (message) {
+        if (message
+            && message.constructor === HTMLDivElement
+            && message.classList.contains('tinder--card')
+            && message.querySelector("img.actionShowCard")) {
+            const cardid = message.querySelector("img.actionShowCard").dataset.cardid;
+            const cardname = message.querySelector(".encounter-data .color-white").innerText;
+            lastEncounters.unshift({ cardid, cardname });
+
+            if (document.querySelector(".tinder--cards strong") && document.querySelector(".tinder--cards strong").innerText.includes("Just for you")
+                && document.querySelectorAll("div.tinder--card:nth-child(2) .droptype_flag").length > 0) {
+                document.querySelector(".btnCharm").style.visibility = "hidden";
+                document.querySelector("#love").style.visibility = "hidden"
+            } else {
+                document.querySelector(".btnCharm").style.visibility = "visible";
+                document.querySelector("#love").style.visibility = "visible"
+            }
         }
-    }, 1)
+
+        originalConsoleLog.apply(unsafeWindow.console, arguments);
+    };
 })();
