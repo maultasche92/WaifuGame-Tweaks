@@ -57,5 +57,19 @@
             showCardInfoMenuLookup(JSON.parse(el.dataset.card).id)
             e.preventDefault();
         })
-    })
+    });
+
+    let sum, max;
+    document.querySelectorAll("#storageBoxSwitcher option").forEach((o) => {
+        let text = o.innerText;
+        if (text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)) {
+            sum = parseInt(text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)[1]);
+            max = parseInt(text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)[2]);
+        } else if (text.match(/Storage Box\ \d+\ \—\ (\d+)/)) {
+            sum += parseInt(text.match(/Storage Box\ \d+\ \—\ (\d+)/)[1]);
+        }
+    });
+    if (sum >= max) {
+        showInfoModal("Full storage", "Your card storage is full!<br>This means, you are now in risk to lose cards!<br>Please be aware, that the storage boxes are not additional space.");
+    }
 })();
