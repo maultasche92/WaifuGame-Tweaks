@@ -70,6 +70,7 @@ Why different formations? You can use one team for both (just include both words
 * Shows how often the active card is in the hotel.
 * A button to show how often every card in the current list is in the hotel (with a delay between each card).
 * Rightclick on card to show card menu.
+* Get informed when your card storage is full
 
 #### [Festival](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Festival%20Tweaks.user.js)
 
