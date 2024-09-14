@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.3
+// @version      1.4
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
@@ -105,6 +105,7 @@
             const cardname = message.querySelector(".encounter-data .color-white").innerText;
             lastEncounters.unshift({ cardid, cardname });
 
+            /*
             if (document.querySelector(".tinder--cards strong") && document.querySelector(".tinder--cards strong").innerText.includes("Just for you")
                 && document.querySelectorAll("div.tinder--card:nth-child(2) .droptype_flag").length > 0) {
                 document.querySelector(".btnCharm").style.visibility = "hidden";
@@ -113,6 +114,7 @@
                 document.querySelector(".btnCharm").style.visibility = "visible";
                 document.querySelector("#love").style.visibility = "visible"
             }
+            */
         }
 
         originalConsoleLog.apply(unsafeWindow.console, arguments);
