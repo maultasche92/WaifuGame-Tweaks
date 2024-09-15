@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.4
+// @version      1.5
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
@@ -98,11 +98,14 @@
     // use the call of log, to get the exact moment, when the encounter got swiped
     unsafeWindow.console.log = function (message) {
         if (message
-            && message.constructor === HTMLDivElement
-            && message.classList.contains('tinder--card')
-            && message.querySelector("img.actionShowCard")) {
-            const cardid = message.querySelector("img.actionShowCard").dataset.cardid;
-            const cardname = message.querySelector(".encounter-data .color-white").innerText;
+            && message.constructor === String
+            // && message.classList.contains('tinder--card')
+            // && message.querySelector("img.actionShowCard")
+            && message.match(/Encounter\ (\d+)/)) {
+            const encId = message.match(/Encounter\ (\d+)/)[1];
+            const card = document.querySelector('[data-encounterid="' + encId + '"]')
+            const cardid = card.querySelector("img.actionShowCard").dataset.cardid;
+            const cardname = card.querySelector(".encounter-data .color-white").innerText;
             lastEncounters.unshift({ cardid, cardname });
 
             /*
