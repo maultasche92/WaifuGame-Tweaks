@@ -5,7 +5,7 @@
 // @match        https://waifugame.com/cards?*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.3
+// @version      1.4
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Card%20Portfolio%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        none
@@ -25,7 +25,8 @@
                 let counter = 0;
 
                 doc.querySelectorAll('.hotelListing .actionShowHotelWaifu').forEach(el => { if (el.dataset.name === cardname) counter++ });
-                document.querySelector("#cardActionBlock #cardName").insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
+                if (document.querySelector("#cardActionBlock #cardName").innerText === cardname)
+                    document.querySelector("#cardActionBlock #cardName").insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
             });
         }
     }, 500);
