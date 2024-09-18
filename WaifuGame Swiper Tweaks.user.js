@@ -26,7 +26,7 @@
             document.getElementById('partyswitcher').click();
             event.preventDefault();
         } else if (event.key === "ArrowDown") {
-            var cardname = document.querySelector(".encounter-data .color-white").innerHTML;
+            var cardname = document.querySelector(".tinder--card:not(.removed) .encounter-data .color-white").innerHTML;
             $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(cardname)).then((homeHtml) => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(homeHtml, 'text/html');
