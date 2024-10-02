@@ -7,6 +7,7 @@
 // @author       maultasche92
 // @version      1.1
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Search%20and%20Wishlist%20Tweaks.user.js
+// @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Search%20and%20Wishlist%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
 // ==/UserScript==
