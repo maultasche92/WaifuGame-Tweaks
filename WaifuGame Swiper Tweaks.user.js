@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.6
+// @version      1.7
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
@@ -34,7 +34,7 @@
                 let counter = 0;
 
                 doc.querySelectorAll('.hotelListing .actionShowHotelWaifu').forEach(el => { if (el.dataset.name === cardname) counter++ });
-                document.querySelector(".encounter-data .color-white").parentElement.insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
+                document.querySelector(".tinder--card:not(.removed) .encounter-data .color-white").parentElement.insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
             });
             event.preventDefault();
         }
