@@ -103,6 +103,10 @@ Why different formations? You can use one team for both (just include both words
 * A button to show how often every card in the current list is in the hotel (with a delay between each card).
 * Show the Metadata (Nature, Element, Trait) of the cards (with a delay between each card), highlight Perception, Charisma and Luck.
 
+#### [General](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20General%20Tweaks.user.js)
+
+* Shows how often the card in the card info window is in the hotel (right side of headline).
+
 #### [Trading](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Trading%20Tweaks.user.js)
 
 * Adds checkboxes to the items in the selection menu to provide a multiselection. Confirm your selection with a green button near the close button.
