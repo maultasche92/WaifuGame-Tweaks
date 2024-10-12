@@ -13,20 +13,22 @@
 (function () {
     'use strict';
 
-    let lastCardName;
+    let lastText;
     setInterval(() => {
-        const cardname = document.querySelector("#cardInfo .insertWaifuName").innerText;
-        if (lastCardName !== cardname) {
-            $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(cardname)).then((homeHtml) => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(homeHtml, 'text/html');
-                let counter = 0;
+        if (document.querySelector("#metaTable tr:last-child td")) {
+            if (lastText !== document.querySelector("#metaTable tr:last-child td").innerText) {
+                const cardname = document.querySelector("#cardInfo .insertWaifuName").innerText;
+                $.get("https://waifugame.com/hotel?sortBy=Lv&sortOrder=desc&rating=-999&rarity=-1&element=0&search=" + encodeURIComponent(cardname)).then((homeHtml) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(homeHtml, 'text/html');
+                    let counter = 0;
 
-                doc.querySelectorAll('.hotelListing .actionShowHotelWaifu').forEach(el => { if (el.dataset.name === cardname) counter++ });
-                if (document.querySelector("#cardInfo .insertWaifuName").innerText === cardname)
-                    document.querySelector("#cardInfo .insertWaifuName").insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
-            });
+                    doc.querySelectorAll('.hotelListing .actionShowHotelWaifu').forEach(el => { if (el.dataset.name === cardname) counter++ });
+                    if (document.querySelector("#cardInfo .insertWaifuName").innerText === cardname)
+                        document.querySelector("#cardInfo .insertWaifuName").insertAdjacentHTML('beforeend', "<span> (" + counter + "x)</span>");
+                });
+            }
+            lastText = document.querySelector("#metaTable tr:last-child td").innerText;
         }
-        lastCardName = cardname;
     }, 500);
 })();
