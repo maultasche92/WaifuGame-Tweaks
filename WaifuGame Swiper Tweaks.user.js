@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.7
+// @version      1.8
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
