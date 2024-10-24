@@ -42,6 +42,9 @@ This Addon is necessary to install and update my scripts.
 You can get the Addon in your browser extension store.
 * There might be an Addon for your mobile browser, but my scripts are not tested with those.
 
+> [!IMPORTANT]
+> In Chrome and chromium based browsers, you need to enable the developer mode in order for tampermonkey to work. There is a switch on the top right of the chrome://extensions/ page.
+
 ## Installing the scripts
 
 Once you have finished the setup, it is now relatively simple. You click on the script you want to use and Tampermonkey should automatically suggest the installation, which you then only have to confirm. The scripts should update automatically, this can be configured in your Tampermonkey Addon and you can also manually update them.
