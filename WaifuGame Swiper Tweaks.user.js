@@ -123,4 +123,5 @@
 
         originalConsoleLog.apply(unsafeWindow.console, arguments);
     };
+    deb.parent().remove();
 })();
