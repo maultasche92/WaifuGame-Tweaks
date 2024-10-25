@@ -4,11 +4,13 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.8
+// @version      1.9
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
 // @grant        unsafeWindow
+// @grant        GM_setValue
+// @grant        GM_getValue
 // ==/UserScript==
 (function () {
     'use strict';
@@ -108,20 +110,36 @@
             const cardid = card.querySelector("img.actionShowCard").dataset.cardid;
             const cardname = card.querySelector(".encounter-data .color-white").innerText;
             lastEncounters.unshift({ cardid, cardname });
-
-            /*
-            if (document.querySelector(".tinder--cards strong") && document.querySelector(".tinder--cards strong").innerText.includes("Just for you")
-                && document.querySelectorAll("div.tinder--card:nth-child(2) .droptype_flag").length > 0) {
-                document.querySelector(".btnCharm").style.visibility = "hidden";
-                document.querySelector("#love").style.visibility = "hidden"
-            } else {
-                document.querySelector(".btnCharm").style.visibility = "visible";
-                document.querySelector("#love").style.visibility = "visible"
-            }
-            */
         }
 
         originalConsoleLog.apply(unsafeWindow.console, arguments);
     };
+    executeAutoplayAction = function () {
+        if (autoplayMode === 'flirt') {
+            if (document.querySelector(".tinder--card:not(.removed)").className.match(/glow-(\d)/)[1] >= autoFlirtRarity.value) {
+                $('#love').click();
+            } else {
+                $('#nope').click();
+            }
+        } else if (autoplayMode === 'crush') {
+            $('#nope').click();
+        } else if (autoplayMode === 'deb') {
+            $('#deb').click();
+        }
+    }
+    window.setTimeout(() => {
+        autoPlayMenu.style.height = '350px';
+    }, 1000);
+    document.querySelector(".btnAutoFlirt").insertAdjacentHTML("afterend",
+       `Flirt filter: Rarity must be at least <select id="autoFlirtRarity" class="form-control" style="width:200px;display:inline;">
+            <option value="0">Common</option>
+            <option value="1">Uncommon</option>
+            <option value="2">Rare</option>
+            <option value="3">Epic</option>
+            <option value="4">Legendary</option>
+            <option value="5">Mythic</option>
+        </select>`);
+    document.getElementById('autoFlirtRarity').value = GM_getValue('autoFlirtRarity') || 0;
+    document.getElementById('autoFlirtRarity').addEventListener('change', (event) => {GM_setValue('autoFlirtRarity', event.target.value)});
     deb.parent().remove();
 })();
