@@ -105,6 +105,7 @@ Why different formations? You can use one team for both (just include both words
 
 * A button to show how often every card in the current list is in the hotel (with a delay between each card).
 * Show the Metadata (Nature, Element, Trait) of the cards (with a delay between each card), highlight Perception, Charisma and Luck.
+* Use middle mouse button on a card to open sponsor page.
 
 #### [General](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20General%20Tweaks.user.js)
 
