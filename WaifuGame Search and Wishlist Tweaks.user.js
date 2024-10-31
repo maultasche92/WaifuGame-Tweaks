@@ -65,4 +65,11 @@
 
     document.getElementById('showMetadata').addEventListener('click', showMetadata);
     document.getElementById('showStock').addEventListener('click', showStock);
+
+    document.addEventListener("mousedown", function(event) {
+        if (event.button === 1 && event.target.parentElement?.dataset?.cardid) {
+            window.open('https://waifugame.com/shards/' + event.target.parentElement.dataset.cardid, '_blank');
+            event.preventDefault();
+        }
+    });
 })();
