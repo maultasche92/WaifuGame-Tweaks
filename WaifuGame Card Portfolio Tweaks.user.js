@@ -5,7 +5,7 @@
 // @match        https://waifugame.com/cards?*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.4
+// @version      1.5
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Card%20Portfolio%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Card%20Portfolio%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
@@ -51,8 +51,14 @@
             }, timeout);
         })
     }
+    function selectAll() {
+        if (!multiSelectActive) toggleMulti.click();
+        document.querySelectorAll("img[data-src]").forEach(img => img.click());
+    }
     document.querySelector("#cardActionBlock")?.insertAdjacentHTML('afterend', "<button id='showStock' style='margin: 10px'>Show Stock</button>");
     document.getElementById('showStock').addEventListener('click', showStock);
+    document.querySelector("#cardActionBlock")?.insertAdjacentHTML('afterend', "<button id='selectAllCards' style='margin: 10px'>Select all</button>");
+    document.getElementById('selectAllCard').addEventListener('click', selectAll);
 
     document.querySelectorAll(".selectCard").forEach((el) => {
         el.addEventListener("contextmenu", (e) => {
@@ -61,17 +67,17 @@
         })
     });
 
-    let sum, max;
-    document.querySelectorAll("#storageBoxSwitcher option").forEach((o) => {
-        let text = o.innerText;
-        if (text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)) {
-            sum = parseInt(text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)[1]);
-            max = parseInt(text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)[2]);
-        } else if (text.match(/Storage Box\ \d+\ \—\ (\d+)/)) {
-            sum += parseInt(text.match(/Storage Box\ \d+\ \—\ (\d+)/)[1]);
-        }
-    });
-    if (sum >= max) {
-        showInfoModal("Full storage", "Your card storage is full!<br>This means, you are now in risk to lose cards!<br>Please be aware, that the storage boxes are not additional space.");
-    }
+    // let sum, max;
+    // document.querySelectorAll("#storageBoxSwitcher option").forEach((o) => {
+    //     let text = o.innerText;
+    //     if (text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)) {
+    //         sum = parseInt(text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)[1]);
+    //         max = parseInt(text.match(/Trade Portfolio\ \—\ (\d+)\/(\d+)/)[2]);
+    //     } else if (text.match(/Storage Box\ \d+\ \—\ (\d+)/)) {
+    //         sum += parseInt(text.match(/Storage Box\ \d+\ \—\ (\d+)/)[1]);
+    //     }
+    // });
+    // if (sum >= max) {
+    //     showInfoModal("Full storage", "Your card storage is full!<br>This means, you are now in risk to lose cards!<br>Please be aware, that the storage boxes are not additional space.");
+    // }
 })();
