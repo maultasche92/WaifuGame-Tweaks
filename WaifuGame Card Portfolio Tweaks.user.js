@@ -5,7 +5,7 @@
 // @match        https://waifugame.com/cards?*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.5
+// @version      1.6
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Card%20Portfolio%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Card%20Portfolio%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
@@ -58,7 +58,7 @@
     document.querySelector("#cardActionBlock")?.insertAdjacentHTML('afterend', "<button id='showStock' style='margin: 10px'>Show Stock</button>");
     document.getElementById('showStock').addEventListener('click', showStock);
     document.querySelector("#cardActionBlock")?.insertAdjacentHTML('afterend', "<button id='selectAllCards' style='margin: 10px'>Select all</button>");
-    document.getElementById('selectAllCard').addEventListener('click', selectAll);
+    document.getElementById('selectAllCards').addEventListener('click', selectAll);
 
     document.querySelectorAll(".selectCard").forEach((el) => {
         el.addEventListener("contextmenu", (e) => {
