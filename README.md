@@ -111,6 +111,10 @@ Why different formations? You can use one team for both (just include both words
 
 * Shows how often the card in the card info window is in the hotel (right side of headline).
 
+#### [Inbox](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Inbox%20Tweaks.user.js)
+
+* Adds an "Do both action" buttons to take all the attachment & mark as read at once.
+
 #### [Trading](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Trading%20Tweaks.user.js)
 
 * Adds checkboxes to the items in the selection menu to provide a multiselection. Confirm your selection with a green button near the close button.
