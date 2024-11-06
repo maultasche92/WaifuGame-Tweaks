@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/items*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.4
+// @version      1.5
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Items%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Items%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
@@ -14,7 +14,7 @@
 (function () {
     'use strict';
     if (location.href.indexOf("sell=") > -1) {
-        window.setTimeout(() => {
+        window.setInterval(() => {
             const type = location.href.match(/sell\=(.+)/)[1];
             function iterateFunctions(functions) {
                 let currentIndex = 0;
