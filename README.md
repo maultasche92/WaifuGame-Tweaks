@@ -59,10 +59,10 @@ There are some scripts that require a little configuration from you, this is add
 
 #### [Swiper](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js)
 
-* Swipe with keyboard arrow key.
-* Quickly change between two formations.
-* Show how often you already have the card in the hotel.
-* Make Charm button invisible when a JustForYou-Wishlist Encounter appears, to prevent the current bug. This is temporary until they can be charmed that way (you have to use debonaire charms until then). This is just visual and a quick hack to draw your attention to the encounter.
+* Swipe with keyboard arrow key: Left=Crush, Right=Flirt, Double right=Charm.
+* Quickly change between two formations with arrow up.
+* Show how often you already have the card in the hotel with arrow down.
+* Show the last encounters using a list of thumbnails on the left side.
 
 > [!IMPORTANT]
 > Configuration: For the formation switcher to work, you need to include "charming" in the name of one your formations and "swiping" in another.
