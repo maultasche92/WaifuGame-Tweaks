@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      2.0
+// @version      2.1
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
@@ -54,7 +54,7 @@
                         overflow-x: visible;
                         z-index: 94; /* below .tinder--buttons */
                         position: absolute;
-                        width: 200px;
+                        width: 100px;
                         height: 93vh;
                         top: 0px;
                         left:0px;
@@ -86,7 +86,7 @@
         cardHTML(card) {
             const imgwidth = 200;
             const imgheight = 300;
-            const imgsrc = String(card.image).replace(/@[0-9]X([.][^/]+)$/, '$1');
+            const imgsrc = String(card.image);
             return `
                 <a onclick="showCardInfoMenuLookup($(this).data('cardid')); return false;" title="${HTML(card.name)}" href="#" class="actionShowCard wgssc-mini-card" data-cardid="${HTML(card.CardID)}">
                     <div class="card-img-container rounded-s ${HTML(card.rarityglow)}">
