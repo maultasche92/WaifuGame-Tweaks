@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      2.1
+// @version      2.2
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
@@ -32,11 +32,25 @@
                 return GM_getValue('queue', []);
             }
         },
+        setupPreloader() {
+            const container = $('#page .tinder--cards').get(0);
+            container.addEventListener('load', function (event) {
+                if (!$(event.target).hasClass('img-fluid actionShowCard'))
+                    return;
+                if (event.target.src) {
+                    const urlSmall = String(event.target.src).replace(/@[0-9]X([.][^/]+)$/, '$1');
+                    console.log('>>>> PRELOADING ', urlSmall, ' because of ', event.target.src);
+                    const img = new Image();
+                    img.src = urlSmall;
+                }
+            }, true);
+        },
         setup() {
             const cc = lastEncounters.getContainer();
             var list = lastEncounters.Store.getQueue();
             while (list.length)
                 cc.append(lastEncounters.cardHTML(list.shift().card));
+            lastEncounters.setupPreloader();
         },
         getContainer() {
             if ($('#wgssc-container').length == 0) {
@@ -86,7 +100,7 @@
         cardHTML(card) {
             const imgwidth = 200;
             const imgheight = 300;
-            const imgsrc = String(card.image);
+            const imgsrc = String(card.image).replace(/@[0-9]X([.][^/]+)$/, '$1');
             return `
                 <a onclick="showCardInfoMenuLookup($(this).data('cardid')); return false;" title="${HTML(card.name)}" href="#" class="actionShowCard wgssc-mini-card" data-cardid="${HTML(card.CardID)}">
                     <div class="card-img-container rounded-s ${HTML(card.rarityglow)}">
