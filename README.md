@@ -74,6 +74,7 @@ Why different formations? You can use one team for both (just include both words
 * A button to show how often every card in the current list is in the hotel (with a delay between each card).
 * Rightclick on card to show card menu.
 * Get informed when your card storage is full
+* A button to show Top Simps, when you are in your storage box number 1: It goes through all of the cards in storage box 1 and adds Top Simp:Yes/No according to the leaderboard.
 
 #### [Festival](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Festival%20Tweaks.user.js)
 
