@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/items*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      1.5
+// @version      1.8
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Items%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Items%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
@@ -49,6 +49,6 @@
                 () => document.querySelector('.customAmountStepper > div:nth-child(1) > a:nth-child(1)'),
                 () => document.querySelector('button.btn-success:nth-child(6)'),
             ]);
-        }, 500)
+        }, 800)
     }
 })();
