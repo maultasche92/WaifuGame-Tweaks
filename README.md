@@ -116,13 +116,6 @@ Why different formations? You can use one team for both (just include both words
 
 * Adds an "Do both action" buttons to take all the attachment & mark as read at once.
 
-#### [Trading](https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Trading%20Tweaks.user.js)
-
-* Adds checkboxes to the items in the selection menu to provide a multiselection. Confirm your selection with a green button near the close button.
-
-> [!CAUTION]
-> WIP: This feature is not completely finished, for example, unselecting does not remove the item from your selected items, you have to use the normal way of removing an item. Too many selections at once can cause stress to the server, resulting in you having to wait a bit.
-
 
 ---
 > [!NOTE]
