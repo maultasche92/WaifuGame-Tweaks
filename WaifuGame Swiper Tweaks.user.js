@@ -4,7 +4,7 @@
 // @match        https://waifugame.com/swiper*
 // @namespace    https://github.com/maultasche92/WaifuGame-Tweaks
 // @author       maultasche92
-// @version      2.2
+// @version      2.3
 // @updateURL    https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @downloadURL  https://github.com/maultasche92/WaifuGame-Tweaks/raw/main/WaifuGame%20Swiper%20Tweaks.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waifugame.com
@@ -232,6 +232,19 @@
         originalConsoleLog.apply(unsafeWindow.console, arguments);
     };
     executeAutoplayAction = function () {
+        if (!autoplayMode) return;
+
+        // Prevent flooding the server
+        if (requestActionPending) {
+            setTimeout(executeAutoplayAction, 250);
+            return;
+        }
+
+        // Only if there are cards left
+        if ($('.tinder--card:not(.removed)').length === 0) {
+            return;
+        }
+
         if (autoplayMode === 'flirt') {
             if (document.querySelector(".tinder--card:not(.removed)").className.match(/glow-(\d)/)[1] >= autoFlirtRarity.value) {
                 $('#love').click();
@@ -240,9 +253,10 @@
             }
         } else if (autoplayMode === 'crush') {
             $('#nope').click();
-        } else if (autoplayMode === 'deb') {
-            $('#deb').click();
         }
+
+        // Queue next action
+        setTimeout(executeAutoplayAction, 1250);
     }
     window.setTimeout(() => {
         autoPlayMenu.style.height = '350px';
